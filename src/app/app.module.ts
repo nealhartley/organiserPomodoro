@@ -6,6 +6,11 @@ import { ClockComponent } from './clock/clock.component';
 import { TaskInterfaceComponent } from './task-interface/task-interface.component';
 import { TasksService } from './tasks.service';
 
+// imports for loading in memory data service
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api'
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
