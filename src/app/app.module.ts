@@ -7,7 +7,7 @@ import { TaskInterfaceComponent } from './task-interface/task-interface.componen
 import { TasksService } from './tasks.service';
 
 // imports for loading in memory data service
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api'
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 

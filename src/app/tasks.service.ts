@@ -13,6 +13,9 @@ export class TasksService {
 
   constructor(private http: Http) {}
 
+
+  // TODO Create methods for a) fetching b) adding
+
   private tasks: Task[] = [
     {task: 'washing'}
   ];
