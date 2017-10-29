@@ -16,12 +16,11 @@ export class TaskInterfaceComponent implements OnInit {
   constructor(private _tasksService: TasksService) {  }
 
   ngOnInit() {
-    this.title = this._tasksService.someMethod();
-    this.tasks = this._tasksService.get();
+    this._tasksService.getTasks().then(tasks => this.tasks = tasks);
     console.log('rebooting');
   }
 
   push(val): void {
-    this._tasksService.add(val);
+    console.log("push");
   }
 }

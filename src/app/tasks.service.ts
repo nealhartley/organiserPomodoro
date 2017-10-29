@@ -13,23 +13,20 @@ export class TasksService {
 
   constructor(private http: Http) {}
 
-
   // TODO Create methods for a) fetching b) adding
-
-  private tasks: Task[] = [
-    {task: 'washing'}
-  ];
-
-  add(val) {
-    this.tasks.push({task: val});
-    console.log("arrrrrr");
-  }
-  get() {
-    return this.tasks;
+  getTasks(): Promise<Task[]> {
+    return this.http.get(this.taskUrl)
+      .toPromise()
+      .then(response => response.json() as Task[])
+      .catch(this.handleError);
   }
 
-  someMethod() {
-    return 'Yo!';
+  private handleError(error: any): Promise<any> {
+    console.error('An error occured', error); // for demo only
+    return Promise.reject(error.message || error);
   }
+
+
+
 }
 

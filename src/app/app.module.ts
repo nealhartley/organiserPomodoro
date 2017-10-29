@@ -6,9 +6,10 @@ import { ClockComponent } from './clock/clock.component';
 import { TaskInterfaceComponent } from './task-interface/task-interface.component';
 import { TasksService } from './tasks.service';
 
+import { HttpModule } from '@angular/http';
 // imports for loading in memory data service
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-
+import { InMemoryDataService } from './in-memory-data.service';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     TaskInterfaceComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   providers: [TasksService],
   bootstrap: [AppComponent]
