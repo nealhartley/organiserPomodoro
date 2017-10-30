@@ -1,3 +1,22 @@
+
+<br>
+<br>
+
 <p>
   clock works!
 </p>
+
+
+<h1>{{clock | async}}</h1>
+<h3>{{currentTask.task}}</h3>
+
+
+
+<form>
+  how long do you want to work for? (minutes)
+  <select id = "selectTimer">
+    <option *ngFor="let number of numbersForTimerSelect" >{{number}}</option>
+  </select>
+</form>
+
+<button (click) = "startTimer()">start Timer</button>
