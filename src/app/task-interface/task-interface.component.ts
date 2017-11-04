@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../tasks.service';
 import {Task} from '../tasks';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-task-interface',
@@ -15,12 +16,22 @@ export class TaskInterfaceComponent implements OnInit {
   tasks: Task[];
   constructor(private _tasksService: TasksService) {  }
 
-  ngOnInit() {
-    this._tasksService.getTasks().then(tasks => this.tasks = tasks);
+  ngOnInit(): void {
+    this.getHeroes();
     console.log('rebooting');
   }
 
-  push(val): void {
-    console.log("push");
+  getHeroes() {
+    this._tasksService.getTasks().then(tasks => this.tasks = tasks);
+  }
+
+  push(taskString: string): void {
+    taskString = taskString.trim();
+    if (!taskString) { return; }
+    this._tasksService.create(taskString)
+      .then(task => this.tasks.push(task));
+    for (let i = 0; i < this.tasks.length; i++) {
+      this.tasks[i].print;
+    }
   }
 }

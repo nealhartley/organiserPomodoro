@@ -21,6 +21,14 @@ export class TasksService {
       .catch(this.handleError);
   }
 
+  create(string: string): Promise<Task> {
+    return this.http
+      .post(this.taskUrl, JSON.stringify({task: string}), { headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Task)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occured', error); // for demo only
     return Promise.reject(error.message || error);

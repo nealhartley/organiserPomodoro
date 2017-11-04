@@ -1,14 +1,17 @@
+<h1>TASK VIEW</h1>
+
+<div class = "add_tasks">
+
+    <label >task to add</label>
+    <input #add>
+    <button (click)="push(add.value); add.value = '';">add</button>
+
+</div>
 
 <div *ngFor="let task of tasks" class = "task_list">
+  yo
   {{task.task}}
 </div>
 
-<div class = "add_tasks">
-  <form>
-    <label for="name">task to add</label>
-    <input #add type = "text" ng-model= "addTask" class = "form-control" id="name" required>
-    <button type="submit" class="submit_btn" (click)="push(add.value)">add</button>
-  </form>
-</div>
 
 <h1>{{title}}</h1>

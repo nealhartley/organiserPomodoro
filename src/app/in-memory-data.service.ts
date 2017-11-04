@@ -4,10 +4,10 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const tasks = [
-      { task: 'Pomodoro app' },
-      { task: 'Runescape' },
-      { task: 'Reids Site' },
-      { task: 'Moes calcs' }
+      { id: 0, task: 'Pomodoro app' },
+      { id: 1, task: 'Runescape' },
+      { id: 2, task: 'Reids Site' },
+      { id: 3, task: 'Moes calcs' }
     ];
     return {tasks};
   }
