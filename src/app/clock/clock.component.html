@@ -20,3 +20,9 @@
 </form>
 
 <button (click) = "startTimer()">start Timer</button>
+
+<br><br>
+<div *ngFor="let task of tasks" class = "task_list">
+  test clock 
+  {{task.task}}
+</div>

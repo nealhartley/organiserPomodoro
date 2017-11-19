@@ -17,11 +17,11 @@ export class TaskInterfaceComponent implements OnInit {
   constructor(private _tasksService: TasksService) {  }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getTasks();
     console.log('rebooting');
   }
 
-  getHeroes() {
+  getTasks() {
     this._tasksService.getTasks().then(tasks => this.tasks = tasks);
   }
 

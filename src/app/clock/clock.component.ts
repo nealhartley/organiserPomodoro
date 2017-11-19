@@ -26,13 +26,17 @@ export class ClockComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._tasksService.getTasks().then(tasks => this.tasks = tasks);
+    this.getTasks();
 
 
     for (let i = 0; i < 60 ; i++) {
-      this.numbersForTimerSelect[i] = i+1;
+      this.numbersForTimerSelect[i] = i + 1;
     }
     console.log(this.numbersForTimerSelect.toString());
+  }
+
+  getTasks() {
+    this._tasksService.getTasks().then(tasks => this.tasks = tasks);
   }
 
   getTask(): Task {
@@ -44,7 +48,7 @@ export class ClockComponent implements OnInit {
   }
 
   startTimer(): void {
-
+    this.getTasks();
     this.setTimer(document.getElementById('selectTimer'));
 
     this.clock = Observable.timer(0, 1000 * 60)
