@@ -49,17 +49,16 @@ export class ClockComponent implements OnInit {
 
   startTimer(): void {
     this.getTasks();
-    this.setTimer(document.getElementById('selectTimer'));
+    this.setTimerLength(document.getElementById('selectTimer'));
 
-    this.clock = Observable.timer(0, 1000 * 60)
+    this.clock = Observable.timer(0, 1000)
       .take(this.counter)
       .map(() => --this.counter);
       this.currentTask = this.getTask();
-
   }
 
-  setTimer(elem): void {
-    this.counter =  elem.value;
+  setTimerLength(elem): void {
+    this.counter =  elem.value * 60;
     console.log('timer set');
   }
 }
