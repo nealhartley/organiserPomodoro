@@ -7,10 +7,12 @@
     <button (click)="push(add.value); add.value = '';">add</button>
 
 </div>
+<br>
+Your tasks:
+<br>
 
 <div *ngFor="let task of tasks" class = "task_list">
-  yo
-  {{task.task}}
+  - {{task.task}}
 </div>
 
 

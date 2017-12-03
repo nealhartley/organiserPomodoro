@@ -6,6 +6,7 @@ import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 
+
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
@@ -19,7 +20,7 @@ export class ClockComponent implements OnInit {
   numbersForTimerSelect: number[] = [];
 
   clock;
-  counter = 45;
+  counter = 0;
 
   mins = 0;
   seconds = 0;
@@ -58,12 +59,21 @@ export class ClockComponent implements OnInit {
       .take(this.counter)
       .map( () => this.setMinsAndSeconds() );
     this.currentTask = this.getTask();
+
   }
 
   setMinsAndSeconds(): void {
     --this.counter;
     this.mins = Math.floor(this.counter / 60);
     this.seconds = this.counter - this.mins * 60;
+    if (this.counter === 0 ) {
+      console.log("counter has expired");
+      const audio = new Audio('../assets/beep-07.wav');
+      audio.play();
+      return;
+    }
+
+
     console.log( 'ticking' );
   }
 
