@@ -7,14 +7,19 @@
 </p>
 
 
-<h1>{{clock | async}}</h1>
+<h1> The clock: {{clock | async}}</h1>
+
+<h1> mins and secs: {{mins}}:{{seconds}}</h1>
+
+<h1>counter: {{this.counter}}</h1>
+
 <h3>{{currentTask.task}}</h3>
 
 
 
 <form>
   how long do you want to work for? (minutes)
-  <select id = "selectTimer">
+  <select id = "selectTimer" onchange="setTimerLength(this)">
     <option *ngFor="let number of numbersForTimerSelect" >{{number}}</option>
   </select>
 </form>

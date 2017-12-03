@@ -20,6 +20,9 @@ export class ClockComponent implements OnInit {
 
   clock;
   counter = 45;
+
+  mins = 0;
+  seconds = 0;
   currentTask = {task: "press button to be assigned a task task"};
 
   constructor(private _tasksService: TasksService) {
@@ -53,8 +56,15 @@ export class ClockComponent implements OnInit {
 
     this.clock = Observable.timer(0, 1000)
       .take(this.counter)
-      .map(() => --this.counter);
-      this.currentTask = this.getTask();
+      .map( () => this.setMinsAndSeconds() );
+    this.currentTask = this.getTask();
+  }
+
+  setMinsAndSeconds(): void {
+    --this.counter;
+    this.mins = Math.floor(this.counter / 60);
+    this.seconds = this.counter - this.mins * 60;
+    console.log( 'ticking' );
   }
 
   setTimerLength(elem): void {
