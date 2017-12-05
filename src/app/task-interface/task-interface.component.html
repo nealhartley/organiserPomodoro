@@ -12,7 +12,7 @@ Your tasks:
 <br>
 
 <div *ngFor="let task of tasks" class = "task_list">
-  - {{task.task}}
+  - {{task.task}}  <button (click)="delete(task)" >x</button>
 </div>
 
 

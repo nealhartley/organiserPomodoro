@@ -34,4 +34,11 @@ export class TaskInterfaceComponent implements OnInit {
       this.tasks[i].print;
     }
   }
+
+  delete(task: Task): void {
+    this._tasksService
+      .delete(task.id)
+      .then(() => { this.tasks = this.tasks.filter( t => t !== task); } );
+  }
+
 }

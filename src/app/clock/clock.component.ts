@@ -24,7 +24,7 @@ export class ClockComponent implements OnInit {
 
   mins = 0;
   seconds = 0;
-  currentTask = {task: "press button to be assigned a task task"};
+  currentTask = {task: "press button to be assigned a task"};
 
   constructor(private _tasksService: TasksService) {
   }
@@ -67,12 +67,11 @@ export class ClockComponent implements OnInit {
     this.mins = Math.floor(this.counter / 60);
     this.seconds = this.counter - this.mins * 60;
     if (this.counter === 0 ) {
-      console.log("counter has expired");
+      console.log('counter has expired');
       const audio = new Audio('../assets/beep-07.wav');
       audio.play();
       return;
     }
-
 
     console.log( 'ticking' );
   }
