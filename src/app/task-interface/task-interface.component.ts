@@ -36,6 +36,12 @@ export class TaskInterfaceComponent implements OnInit {
   }
 
   delete(task: Task): void {
+
+    if (this.tasks.length === 1 ){
+      alert( 'You must have atleast one task at all times!. Add another task before you delete this one' );
+      return;
+    }
+
     this._tasksService
       .delete(task.id)
       .then(() => { this.tasks = this.tasks.filter( t => t !== task); } );
